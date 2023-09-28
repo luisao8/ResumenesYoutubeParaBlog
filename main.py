@@ -3,7 +3,6 @@ import openai
 from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled
 import re
 from dotenv import load_dotenv
-import os
 import streamlit.components.v1 as components
 
 load_dotenv()
@@ -57,6 +56,6 @@ if url:
     id =  extract_youtube_video_id(url)
     text = get_video_transcript(id)
     summary = generate_summary(text)
-    components.html(summary, height=1000)
+    components.html(summary, height=2500)
     
     
