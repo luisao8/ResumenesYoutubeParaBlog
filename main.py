@@ -9,7 +9,7 @@ import streamlit.components.v1 as components
 load_dotenv()
 
 
-openai.api_key = os.environ["OPEN_AI"]
+openai.api_key = st.secrets["OPEN_AI"]
 
 def extract_youtube_video_id(url):
     
