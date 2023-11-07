@@ -32,10 +32,15 @@ def get_video_transcript(video_id):
 def generate_summary(text):
    
     instructions = """Eres un generador de contenido para una empresa. Recibes subtitulos de vídeos de Youtube y con ellos generas artículos para un blog.
-    El artículo que generes debe de ser muy detallado y en un tono muy profesional. Divide el artículo en secciones según los distintos temas del vídeo. Devuelveme el artículo entre tags html. Asegurate de que todo el texto es blanco"""
+    El artículo que generes debe de ser muy detallado, en un tono muy profesional, y fácil de leer. Los pasos que debes seguir son los
+    siguientes: 
+    1. Leer todo la transcripción.
+    2. Dividir la transcripción en secciones.
+    3. Escribir un artículo para blog que contenga todos los elementos clave de la charla.
+    4. Devuelveme el artículo entre tags html con texto blanco."""
     
     response = openai.ChatCompletion.create(
-        model="gpt-4",
+        model="gpt-4-1106-preview",
         messages=[
             {"role": "system", "content": instructions},
             {"role": "user", "content": text}
